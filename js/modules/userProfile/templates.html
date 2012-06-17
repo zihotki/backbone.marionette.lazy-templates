@@ -1,0 +1,65 @@
+﻿<script id="user-edit-profile-tmpl" type="text/underscore-templates">
+    <div class="span6 offset1">
+        <form class="form-horizontal well">
+            <fieldset>
+                <legend>User Profile - Editing</legend>
+                <div class="control-group">
+                    <label for="user-profile-first-name" class="control-label">First Name</label>
+                    <div class="controls">
+                        <input id="user-profile-first-name" type="text" class="input-xlarge" value="<%= FirstName %>"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="user-profile-last-name" class="control-label">Last Name</label>
+                    <div class="controls">
+                        <input id="user-profile-last-name" type="text" class="input-xlarge" value="<%= LastName %>"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="user-profile-nick-name" class="control-label">Nickname</label>
+                    <div class="controls">
+                        <input id="user-profile-nick-name" type="text" class="input-xlarge" value="<%= Nickname %>"/>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="save-user-profile" class="btn btn-primary" type="button">Save changes</button>
+                    <button id="cancel-editing-user-profile" class="btn">Cancel editing</button>
+                    <button class="btn" type="reset">Reset</button>
+                </div>
+            </fieldset>
+        </form>
+        
+    </div>
+</script>
+
+<script id="user-profile-tmpl" type="text/underscore-templates">
+    <div class="span6 offset1">
+        <form class="form-horizontal well">
+            <fieldset>
+                <legend>User Profile</legend>
+                <div class="control-group">
+                    <label class="control-label">First Name</label>
+                    <div class="controls">
+                        <label class="checkbox"><%= FirstName %></label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Last Name</label>
+                    <div class="controls">
+                        <label class="checkbox"><%= LastName %></label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Nickname</label>
+                    <div class="controls">
+                        <label class="checkbox"><%= Nickname %></label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a href="#user/edit-profile/42" class="btn btn-primary">Edit</a>
+                </div>
+            </fieldset>
+        </form>
+        
+    </div>
+</script>

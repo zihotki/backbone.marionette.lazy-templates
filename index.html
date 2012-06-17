@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body data-offset="50" data-target="#sub-navigation" data-spy="scroll">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Lazy Templates</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <header id="overview" class="jumbotron subhead">
+          <h1>Lazy Templates</h1>
+        <p>This is a backbone.marionette plugin which allows to load view templates for an application on demand - when a user navigates to any route of an marionette application for the first time.</p>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        
+        <div id="sub-navigation" class="subnav">
+        </div>
+      </header>
+      
+      <div id="content" class="row">
+          
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Back to the future! 2021</p>
+      </footer>
+
+    </div>
+    
+    <script id="content-menu-tmpl" type="text/x-jquery-tmpl">
+        <li><a href="#user/profile">User profile</a></li>
+    </script>
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+    <script src="js/libs/bootstrap.min.js"></script>
+
+    <script src="js/libs/underscore.js"></script>
+    <script src="js/libs/backbone.js"></script>
+    <script src="js/libs/backbone.marionette.js"></script>
+    
+    <script src="js/lazy-templates.js"></script>
+
+    
+    <script src="js/mainApp/mainApp.js"></script>
+    <script src="js/mainApp/views.js"></script>
+    <script src="js/modules/userProfile/userProfileApp.js"></script>    
+    <script src="js/modules/userProfile/models.js"></script>
+    <script src="js/modules/userProfile/views.js"></script>
+    
+    <script type='text/javascript'>
+
+
+
+        $(function () {
+
+            // fix sub nav on scroll
+            var $win = $(window),
+                $nav = $('#sub-navigation'),
+                navHeight = $('.navbar').first().height(),
+                navTop = $('#sub-navigation').length && $('#sub-navigation').offset().top - navHeight,
+                isFixed = 0;
+
+            processScroll();
+
+            $win.on('scroll', processScroll);
+
+            function processScroll() {
+                var scrollTop = $win.scrollTop();
+                if (scrollTop >= navTop && !isFixed) {
+                    isFixed = 1;
+                    $nav.addClass('subnav-fixed');
+                } else if (scrollTop <= navTop && isFixed) {
+                    isFixed = 0;
+                    $nav.removeClass('subnav-fixed');
+                }
+            }
+
+           MainApp.start();
+        });
+    </script> 
+
+</body>
+</html>
